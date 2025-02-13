@@ -1367,7 +1367,7 @@ void handle_tick_movement(void)
 * 3. Sets low and high period registers
 * 4. Enables timer with control value 0x7 (enables timer, interrupts, and continuous mode)
 */
-void labinit(void)
+void init_timer(void)
 {
     *TIMER_CONTROL = 0;
 
@@ -1620,7 +1620,7 @@ game_start: // Label for restarting the game
     print("Starting Tetris...\n");
 
     randState = *TIMER_STATUS; // Use whatever value is in the timer as our seed
-    labinit();
+    init_timer();
 
     // Reset game variables
     speed = startSpeed;
